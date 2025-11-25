@@ -60,8 +60,8 @@ public class UserController {
         }
     }
 
-    @GetMapping("/login")
-    public ResponseEntity<?> checkUsernameAndPassword(@RequestBody String username, @RequestBody String password){
+    @GetMapping("/login/{username}/{password}")
+    public ResponseEntity<?> checkUsernameAndPassword(@PathVariable String username, @PathVariable String password){
         if (userService.checkUsernameAndPassword(username,password)){
             return ResponseEntity.status(200).body(new ApiResponse("The username and password match, you may login"));
         }else {
