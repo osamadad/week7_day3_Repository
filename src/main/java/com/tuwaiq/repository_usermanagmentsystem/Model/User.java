@@ -22,9 +22,9 @@ public class User {
     @NotEmpty(message = "Sorry your username can't be empty, please try again")
     @Size(min = 4,max = 20, message = "Sorry your name can't be less than 4 or longer than 20 characters, please try again")
     @Column(columnDefinition = "varchar(20) not null unique")
-    private String userName;
+    private String username;
     @NotEmpty(message = "Sorry your password can't be empty, please try again")
-    @Pattern(regexp = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,16}$", message = "Sorry your password must have at least 1 capital letter, 1 small letter, and 1 number, please try again")
+    @Pattern(regexp = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,16}$", message = "Sorry your password must have at least 1 capital letter, 1 small letter, and 1 number and have at least 8 characters, please try again")
     @Column(columnDefinition = "varchar(16) not null")
     private String password;
     @NotEmpty(message = "Sorry your email can't be empty, please try again")
