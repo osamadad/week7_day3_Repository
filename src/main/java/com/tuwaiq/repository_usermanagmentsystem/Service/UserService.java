@@ -48,15 +48,17 @@ public class UserService {
     }
 
     public Boolean checkUsernameAndPassword(String username,String password){
-        User user=userRepository.getUserByUserName(username);
-        if (user==null){
+        List<User> users=userRepository.getUserByUserName(username);
+        if (users.isEmpty()){
             return false;
         }
-        if (user.getPassword().equals(password)){
-            return true;
-        }else {
-            return false;
+
+        for (User user:users) {
+            if (user.getPassword().equals(password)){
+                return true;
+            }
         }
+        return false;
     }
 
     public User getUserByEmail(String email){
